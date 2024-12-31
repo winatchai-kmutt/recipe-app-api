@@ -1,0 +1,25 @@
+# version: "3.9"
+
+# Docker compose for defining and running mulit-container of Docker image, api, database, etc 
+# services: Replensent each containers
+# app: set name which now is app
+# build: indecate that Docker image for this service, context: set directory Dockerfile
+# ports: Mapping ports, Make able to access this service in localhost on 3000 (localhost:3000) <=> Docker Container (port 8000) (from DockerFile)
+#   Must set Django run on 8000 from port mapping and access by localhost:3000 (in log django will show http://0.0.0.0:8000/ which make confusing)
+#   so with easy understading set 8000:8000, start server 8000, access locolhost:8000 which same port
+# volumns: mapping directory local machine to docker to reflected in the running 
+#   container in real time (./app on mac to app on docker)
+#   sync the project to container
+
+services:
+  app:
+    build: 
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"

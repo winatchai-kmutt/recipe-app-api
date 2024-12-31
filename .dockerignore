@@ -1,0 +1,20 @@
+# ignore any file from add to image which created from local machine
+
+# Git
+# ignore .git from history our project into Image
+.git
+.gitignore
+
+# Docker 
+# it just using in our lacal machine
+.docker
+
+# Python
+# ignore from cache python 
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+.env/
+.venv/
+venv/
