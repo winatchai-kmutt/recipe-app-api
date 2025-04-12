@@ -8,7 +8,7 @@ test:
 
 # Target to start the server
 run:
-	$(DOCKER_COMPOSE) "$(PYTHON_CMD) runserver"
+	docker compose
 
 # Target to run flake8
 lint:
